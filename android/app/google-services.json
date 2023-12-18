@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "103500859296",
+    "project_id": "watsappclone-5f247",
+    "storage_bucket": "watsappclone-5f247.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:103500859296:android:95c88011b3b7019eecc6c5",
+        "android_client_info": {
+          "package_name": "com.example.watsapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDLVCGc82_0HZ2bXi2F1xQkIUKefYbolek"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
