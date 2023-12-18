@@ -1,1 +1,1 @@
-# WatsApp clone made using Flutter
+# WhatsApp clone made using Flutter
