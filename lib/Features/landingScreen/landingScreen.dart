@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:watsapp/Features/landingScreen/auth/screens/loginScreen.dart';
 import 'package:watsapp/common/utils/colors.dart';
 
 //!
 //?
-//TODO
+//TODO : DROP DOWN SHEET
 
 class LandingScreen extends StatefulWidget {
   const LandingScreen({super.key});
@@ -14,6 +15,9 @@ class LandingScreen extends StatefulWidget {
 
 class _LandingScreenState extends State<LandingScreen> {
   String selectLanguage = "English";
+  void NavigateToLoginScreen(BuildContext context) {
+    Navigator.pushNamed(context, LoginScrren.routeName);
+  }
 
   Widget _buildLanguageTile(String Language) {
     return ListTile(
@@ -28,6 +32,7 @@ class _LandingScreenState extends State<LandingScreen> {
   }
 
 //! CODE FOR THE DIALOG BOX
+//TODO : THE DROPDOWN SHEET IS NOT PROPERLY MADE
 
   void _showLanguageDialog() {
     showModalBottomSheet(
@@ -142,7 +147,7 @@ class _LandingScreenState extends State<LandingScreen> {
               width: 380,
               height: 40,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () => NavigateToLoginScreen(context),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: tabColor,
                 ),
