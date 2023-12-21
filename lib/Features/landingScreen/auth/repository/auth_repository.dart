@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:watsapp/Features/landingScreen/auth/screens/OTPScree.dart';
+import 'package:watsapp/Features/landingScreen/auth/screens/user_informationScreen.dart';
 import 'package:watsapp/common/utils/utils.dart';
 
 final authRespositoryProvider = Provider(
@@ -34,6 +35,29 @@ class AuthRepository {
           },
           codeAutoRetrievalTimeout: (String verificationId) {});
     } on FirebaseAuthException catch (e) {
+      // ignore: use_build_context_synchronously
+      showSnackBar(context: context, content: e.message!);
+    }
+  }
+
+  void verifyOTP({
+    required BuildContext context,
+    required String verificationId,
+    required String userOTP,
+  }) async {
+    try {
+      PhoneAuthCredential credential = PhoneAuthProvider.credential(
+        verificationId: verificationId,
+        smsCode: userOTP,
+      );
+      await auth.signInWithCredential(credential);
+      Navigator.pushNamedAndRemoveUntil(
+        context,
+        UserInformatioScreen.routeName,
+        (route) => false,
+      );
+    } on FirebaseAuthException catch (e) {
+      // ignore: use_build_context_synchronously
       showSnackBar(context: context, content: e.message!);
     }
   }

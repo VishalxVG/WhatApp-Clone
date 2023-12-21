@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:watsapp/Features/landingScreen/auth/controller/auth_controller.dart';
 import 'package:watsapp/common/utils/colors.dart';
 import 'package:country_picker/country_picker.dart';
+import 'package:watsapp/common/utils/utils.dart';
 
-class LoginScrren extends StatefulWidget {
+class LoginScrren extends ConsumerStatefulWidget {
   static const routeName = "/login-screen";
   const LoginScrren({super.key});
 
   @override
-  State<LoginScrren> createState() => _LoginScrrenState();
+  ConsumerState<LoginScrren> createState() => _LoginScrrenState();
 }
 
-class _LoginScrrenState extends State<LoginScrren> {
+class _LoginScrrenState extends ConsumerState<LoginScrren> {
   final phoneController = TextEditingController();
   Country? country;
 
@@ -29,6 +32,21 @@ class _LoginScrrenState extends State<LoginScrren> {
             country = _country;
           });
         });
+  }
+
+  void sendPhoneNumber() {
+    String phoneNumber = phoneController.text.trim();
+    if (country != null && phoneNumber.isNotEmpty) {
+      ref.read(authControllerProvider).signInWithPhone(
+            context,
+            "+${country!.phoneCode}$phoneNumber",
+          );
+    } else {
+      showSnackBar(
+        context: context,
+        content: "Fill all the fields",
+      );
+    }
   }
 
   @override
@@ -98,7 +116,7 @@ class _LoginScrrenState extends State<LoginScrren> {
                   style: ElevatedButton.styleFrom(
                     backgroundColor: tabColor,
                   ),
-                  onPressed: () {},
+                  onPressed: sendPhoneNumber,
                   child: const Text("Next"),
                 ),
               )

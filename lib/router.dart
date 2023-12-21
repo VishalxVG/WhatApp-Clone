@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:watsapp/Features/landingScreen/auth/screens/OTPScree.dart';
 import 'package:watsapp/Features/landingScreen/auth/screens/loginScreen.dart';
+import 'package:watsapp/Features/landingScreen/auth/screens/user_informationScreen.dart';
 import 'package:watsapp/common/widgets/error.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
@@ -15,6 +16,10 @@ Route<dynamic> generateRoute(RouteSettings settings) {
         builder: ((context) => OTPScreen(
               verificationId: verifivationId,
             )),
+      );
+    case UserInformatioScreen.routeName:
+      return MaterialPageRoute(
+        builder: ((context) => const UserInformatioScreen()),
       );
     default:
       return MaterialPageRoute(
