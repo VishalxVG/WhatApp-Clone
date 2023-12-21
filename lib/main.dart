@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
           )),
       onGenerateRoute: (settings) => generateRoute(settings),
       debugShowCheckedModeBanner: false,
-      home: LandingScreen(),
+      home: const LandingScreen(),
     );
   }
 }

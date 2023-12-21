@@ -82,6 +82,7 @@ class _LoginScrrenState extends State<LoginScrren> {
                         width: 280,
                         child: TextField(
                           controller: phoneController,
+                          keyboardType: TextInputType.phone,
                           decoration:
                               const InputDecoration(hintText: "\tphone number"),
                         ),
