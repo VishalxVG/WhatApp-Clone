@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -59,6 +61,21 @@ class AuthRepository {
     } on FirebaseAuthException catch (e) {
       // ignore: use_build_context_synchronously
       showSnackBar(context: context, content: e.message!);
+    }
+  }
+
+  void saveUserInfotoFirebase({
+    required String name,
+    required File? profilePic,
+    required ProviderRef ref,
+    required BuildContext context,
+  }) async {
+    try {
+      String uid = auth.currentUser!.uid;
+      String photoUrl =
+          "https://as1.ftcdn.net/v2/jpg/02/59/39/46/1000_F_259394679_GGA8JJAEkukYJL9XXFH2JoC3nMguBPNH.jpg";
+    } catch (e) {
+      showSnackBar(context: context, content: e.toString());
     }
   }
 }

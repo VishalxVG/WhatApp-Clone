@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:watsapp/Features/landingScreen/auth/screens/loginScreen.dart';
+import 'package:watsapp/Features/landingScreen/auth/screens/user_informationScreen.dart';
 import 'package:watsapp/Features/landingScreen/landingScreen.dart';
 import 'package:watsapp/common/utils/colors.dart';
 import 'package:watsapp/firebase_options.dart';
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
           )),
       onGenerateRoute: (settings) => generateRoute(settings),
       debugShowCheckedModeBanner: false,
-      home: const LandingScreen(),
+      home: const UserInformatioScreen(),
     );
   }
 }
